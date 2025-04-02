@@ -35,7 +35,7 @@ services:
   vllm:
     build:
       context: ./vllm
-    image: xoo4foo/zzvllm32:latest
+    image: xoo4foo/zzvllm43:latest
     runtime: nvidia
     deploy:
       resources:
@@ -46,7 +46,7 @@ services:
               capabilities: [gpu]
     ports:
       - "1371:1371"
-    container_name: container_vllm
+    container_name: container_vllm_xoo
     volumes:
       - /models:/models
     shm_size: 8gb
@@ -76,7 +76,7 @@ services:
               capabilities: [gpu]
     ports:
       - "1370:1370"
-    container_name: container_vllm2
+    container_name: container_vllm_oai
     volumes:
       - /root/.cache/huggingface/hub:/root/.cache/huggingface/hub
       - /models:/root/.cache/huggingface/hub
